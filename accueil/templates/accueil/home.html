@@ -1,0 +1,84 @@
+{% extends "accueil/base.html" %}
+
+{% block content %}
+<main id="contenu">
+    <section class="hero" id="accueil">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Un quartier, mille belles histoires</p>
+            <h1>Bien vivre,<br>ça se <em>partage.</em></h1>
+            <p class="hero-intro">Bienvenue à {{ quartier_nom }}, un lieu où la paix, la solidarité et la joie de vivre se cultivent chaque jour, ensemble.</p>
+            <a class="button button-light" href="{% url 'histoire' %}">Découvrir notre histoire <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-note">
+            <span class="note-icon" aria-hidden="true">♡</span>
+            <span>Des voisins aujourd'hui.<br>Une communauté pour demain.</span>
+        </div>
+        <span class="hero-index" aria-hidden="true">01 — 03</span>
+    </section>
+
+    <section class="welcome section-wrap" id="notre-esprit">
+        <div class="section-label"><span>01</span> Notre esprit</div>
+        <div class="welcome-copy">
+            <h2>Un quartier n'est pas qu'un lieu.<br><em>C'est une façon d'être ensemble.</em></h2>
+            <p>À {{ quartier_nom }}, chacun a sa place. Les sourires se croisent, les générations se rencontrent et les petites attentions rendent les journées plus belles. C'est cette énergie collective qui fait la richesse de notre quartier.</p>
+            <a class="text-link" href="{% url 'histoire' %}">Lire l'histoire du quartier <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="welcome-stamp" aria-label="Ensemble, tout simplement">
+            <span class="stamp-top">Ensemble</span>
+            <span class="stamp-flower" aria-hidden="true">⌂</span>
+            <span class="stamp-bottom">tout simplement</span>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="section-wrap">
+            <div class="section-heading">
+                <div>
+                    <div class="section-label section-label-light"><span>02</span> Ce qui nous rassemble</div>
+                    <h2>Les belles choses<br>se construisent <em>à plusieurs.</em></h2>
+                </div>
+                <p>Trois idées simples, au cœur de notre vie de quartier.</p>
+            </div>
+            <div class="values-grid">
+                {% for valeur in valeurs %}
+                <article class="value-card">
+                    <div class="value-card-top"><span>{{ valeur.numero }}</span><span class="value-icon" aria-hidden="true">{{ valeur.icone }}</span></div>
+                    <h3>{{ valeur.titre }}</h3>
+                    <p>{{ valeur.description }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="initiatives section-wrap" id="initiatives">
+        <div class="section-label"><span>03</span> La vie du quartier</div>
+        <div class="section-heading initiatives-heading">
+            <h2>De petites idées,<br><em>de grands sourires.</em></h2>
+            <p>La vie de quartier, c'est tout ce que l'on invente et partage au fil des jours.</p>
+        </div>
+        <div class="initiative-grid">
+            {% for initiative in initiatives %}
+            <article class="initiative-card">
+                <div class="initiative-icon" aria-hidden="true">{{ initiative.icone }}</div>
+                <p class="initiative-category">{{ initiative.categorie }}</p>
+                <h3>{{ initiative.titre }}</h3>
+                <p class="initiative-description">{{ initiative.description }}</p>
+                <span class="card-arrow" aria-hidden="true">↗</span>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="join-section" id="participer">
+        <div class="join-inner">
+            <div class="join-sparkle" aria-hidden="true">❧</div>
+            <p class="eyebrow">Le quartier, c'est nous tous</p>
+            <h2>Votre sourire,<br>votre idée, <em>votre place.</em></h2>
+            <p class="join-copy">Une envie de partager, une idée pour le quartier ou juste le plaisir de faire connaissance ? La porte est toujours ouverte.</p>
+            <a class="button button-dark" href="{% url 'galerie' %}">Voir les souvenirs du quartier <span aria-hidden="true">↗</span></a>
+        </div>
+    </section>
+</main>
+{% endblock %}

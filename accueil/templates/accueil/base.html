@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}Découvrez Mom Sa Rew : son histoire, ses lieux et les souvenirs de ses habitants.{% endblock %}">
+    <title>{% block title %}{{ quartier_nom }} — Bien vivre ensemble{% endblock %}</title>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="{% static 'accueil/style.css' %}">
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+        <a class="brand" href="{% url 'home' %}" aria-label="Accueil — {{ quartier_nom }}">
+            <span class="brand-mark" aria-hidden="true">⌂</span>
+            <span>{{ quartier_nom }}</span>
+        </a>
+        <nav class="main-nav" aria-label="Navigation principale">
+            <a href="{% url 'home' %}">Accueil</a>
+            <a href="{% url 'histoire' %}">Notre histoire</a>
+            <a href="{% url 'galerie' %}">Galerie</a>
+            <a href="{% url 'lieux' %}">Lieux essentiels</a>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="site-footer">
+        <a class="brand footer-brand" href="{% url 'home' %}">
+            <span class="brand-mark" aria-hidden="true">⌂</span>
+            <span>{{ quartier_nom }}</span>
+        </a>
+        <p>Un quartier vivant se construit avec chacun de nous.</p>
+        <a class="back-to-top" href="#contenu">Retour en haut ↑</a>
+    </footer>
+</body>
+</html>

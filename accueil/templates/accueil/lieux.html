@@ -1,0 +1,52 @@
+{% extends "accueil/base.html" %}
+
+{% block title %}Lieux essentiels — {{ quartier_nom }}{% endblock %}
+{% block description %}Découvrez le CEM Mom Sa Rew et le terrain de football du quartier.{% endblock %}
+
+{% block content %}
+<main id="contenu">
+    <section class="page-hero places-hero">
+        <div class="page-hero-shade"></div>
+        <div class="page-hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Nos repères au quotidien</p>
+            <h1>Les lieux qui<br><em>nous rassemblent.</em></h1>
+            <p>Des espaces de savoir, de sport et de rencontre au cœur de Mom Sa Rew.</p>
+            <a class="button button-light" href="#lieux">Découvrir les lieux <span aria-hidden="true">↓</span></a>
+        </div>
+    </section>
+
+    <section class="places-section section-wrap" id="lieux">
+        <div class="section-label"><span>01</span> Les lieux essentiels</div>
+        <div class="places-grid">
+            <article class="place-card">
+                {% if cem_photo %}
+                <img src="{{ cem_photo.image.url }}" alt="{{ cem_photo.description|default:cem_photo.titre }}" loading="lazy">
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1100&q=85" alt="École et salle de classe, photo d'illustration du CEM" loading="lazy">
+                {% endif %}
+                <div class="place-copy">
+                    <p class="initiative-category">Éducation</p>
+                    <h2>Le CEM Mom Sa Rew</h2>
+                    <p>Un lieu d'apprentissage et de rencontres où les jeunes du quartier construisent leurs projets et préparent l'avenir.</p>
+                    <span class="place-tag">Savoir · Jeunesse · Avenir</span>
+                </div>
+            </article>
+            <article class="place-card">
+                {% if terrain_photo %}
+                <img src="{{ terrain_photo.image.url }}" alt="{{ terrain_photo.description|default:terrain_photo.titre }}" loading="lazy">
+                {% else %}
+                <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1100&q=85" alt="Terrain de football, photo d'illustration du terrain Mom Sa Rew" loading="lazy">
+                {% endif %}
+                <div class="place-copy">
+                    <p class="initiative-category">Sport et convivialité</p>
+                    <h2>Le terrain Mom Sa Rew</h2>
+                    <p>Un terrain de football sablonneux où les jeunes se retrouvent, jouent ensemble et font vivre l'esprit d'équipe.</p>
+                    <span class="place-tag">Football · Rencontre · Esprit d'équipe</span>
+                </div>
+            </article>
+        </div>
+        <p class="image-disclaimer">Les images par défaut sont des illustrations. Ajoutez des photos du CEM ou du terrain depuis la galerie pour les afficher ici.</p>
+        <a class="button button-dark" href="{% url 'galerie' %}">Voir la galerie du quartier <span aria-hidden="true">↗</span></a>
+    </section>
+</main>
+{% endblock %}

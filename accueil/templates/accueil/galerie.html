@@ -1,0 +1,49 @@
+{% extends "accueil/base.html" %}
+
+{% block title %}Galerie photos — {{ quartier_nom }}{% endblock %}
+{% block description %}Les images et les souvenirs des habitants de Mom Sa Rew.{% endblock %}
+
+{% block content %}
+<main id="contenu">
+    <section class="page-hero gallery-hero">
+        <div class="page-hero-shade"></div>
+        <div class="page-hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Instants partagés</p>
+            <h1>La vie en<br><em>images.</em></h1>
+            <p>Des visages, des lieux et de beaux souvenirs de Mom Sa Rew.</p>
+            <a class="button button-light" href="#photos">Parcourir la galerie <span aria-hidden="true">↓</span></a>
+        </div>
+    </section>
+
+    <section class="gallery-section section-wrap" id="photos">
+        <div class="section-heading gallery-heading">
+            <div>
+                <div class="section-label"><span>01</span> Nos souvenirs</div>
+                <h2>Un quartier, mille<br><em>moments à partager.</em></h2>
+            </div>
+            <p>{% if photos %}Les souvenirs partagés par les habitants de Mom Sa Rew.{% else %}Ces images sont des illustrations. Ajoutez vos propres photos pour les remplacer.{% endif %}</p>
+        </div>
+        <div class="gallery-grid">
+            {% for photo in photos %}
+            <figure class="gallery-card">
+                <img src="{{ photo.image.url }}" alt="{{ photo.description|default:photo.titre }}" loading="lazy">
+                <figcaption><span>{{ photo.titre }}</span>{% if photo.description %}<small>{{ photo.description }}</small>{% endif %}</figcaption>
+            </figure>
+            {% empty %}
+            <figure class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=80" alt="Rue animée, photo d'illustration" loading="lazy">
+                <figcaption><span>La vie du quartier</span><small>Photo d'illustration</small></figcaption>
+            </figure>
+            <figure class="gallery-card gallery-card-tall">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="Habitants réunis, photo d'illustration" loading="lazy">
+                <figcaption><span>Ensemble, tout simplement</span><small>Photo d'illustration</small></figcaption>
+            </figure>
+            <figure class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80" alt="Moment convivial, photo d'illustration" loading="lazy">
+                <figcaption><span>Un moment de partage</span><small>Photo d'illustration</small></figcaption>
+            </figure>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

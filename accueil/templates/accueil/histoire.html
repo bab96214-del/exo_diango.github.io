@@ -1,0 +1,48 @@
+{% extends "accueil/base.html" %}
+
+{% block title %}L'histoire de {{ quartier_nom }}{% endblock %}
+{% block description %}Découvrez le récit, les figures marquantes et les traditions de Mom Sa Rew.{% endblock %}
+
+{% block content %}
+<main id="contenu">
+    <section class="page-hero history-hero">
+        <div class="page-hero-shade"></div>
+        <div class="page-hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Mémoire et identité</p>
+            <h1>L'histoire de<br><em>{{ quartier_nom }}</em></h1>
+            <p>Un nom, des souvenirs et un esprit de quartier transmis de génération en génération.</p>
+            <a class="button button-light" href="#recit">Lire le récit <span aria-hidden="true">↓</span></a>
+        </div>
+    </section>
+
+    <section class="story-section section-wrap" id="recit">
+        <div class="section-label"><span>01</span> Le récit du quartier</div>
+        <article class="story-copy">
+            <p class="story-opening">Il était une fois MOM SA REW…</p>
+            <p>Dans un quartier façonné par les rencontres et la solidarité, un nom a commencé à rassembler les habitants : Mom Sa Rew. Selon le récit transmis par les habitants, le chef de quartier a initié ce nom avec une idée forte : que chaque personne se sente attachée à son quartier, fière de ses racines et prête à participer à la vie de sa communauté.</p>
+            <p>Peu à peu, ce nom est devenu un signe de reconnaissance et d'appartenance. Il rappelle que le quartier ne se résume pas à ses rues : il vit grâce aux femmes et aux hommes qui s'entraident, accueillent leurs voisins et transmettent leurs valeurs aux plus jeunes.</p>
+            <p>La mémoire locale évoque aussi des figures respectées, parmi lesquelles Mame Coumba Lambaye, dont le nom reste associé à l'histoire et à la notoriété du quartier. Les récits parlent également d'esprits protecteurs, une croyance et une tradition spirituelle qui occupent une place dans l'imaginaire et la mémoire de certaines familles.</p>
+            <p>Cette histoire continue de s'écrire chaque jour. Les souvenirs des anciens, les initiatives des habitants et les rêves de la jeunesse font de Mom Sa Rew un quartier fier de son identité et tourné vers l'avenir.</p>
+            <p class="story-note">Ce récit met en forme les éléments partagés par les habitants. Les dates et les détails historiques pourront être enrichis avec les témoignages de la communauté.</p>
+        </article>
+    </section>
+
+    <section class="values-section">
+        <div class="section-wrap">
+            <div class="section-heading">
+                <div>
+                    <div class="section-label section-label-light"><span>02</span> Ce qui nous unit</div>
+                    <h2>Une mémoire vivante,<br>un avenir <em>à construire.</em></h2>
+                </div>
+                <p>Fierté, respect et solidarité : des repères qui traversent les générations.</p>
+            </div>
+            <div class="values-grid story-values">
+                <article class="value-card"><div class="value-card-top"><span>01</span><span class="value-icon" aria-hidden="true">⌂</span></div><h3>Un nom fédérateur</h3><p>Une identité qui invite chacun à se sentir membre de la communauté.</p></article>
+                <article class="value-card"><div class="value-card-top"><span>02</span><span class="value-icon" aria-hidden="true">✦</span></div><h3>Des figures respectées</h3><p>Les personnes marquantes restent présentes dans les récits du quartier.</p></article>
+                <article class="value-card"><div class="value-card-top"><span>03</span><span class="value-icon" aria-hidden="true">♡</span></div><h3>Un esprit solidaire</h3><p>Le partage et l'entraide donnent vie à l'identité de Mom Sa Rew.</p></article>
+            </div>
+            <a class="button button-light section-button" href="{% url 'galerie' %}">Découvrir la galerie <span aria-hidden="true">↗</span></a>
+        </div>
+    </section>
+</main>
+{% endblock %}
